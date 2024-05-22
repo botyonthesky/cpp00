@@ -6,7 +6,7 @@
 /*   By: tmaillar <tmaillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 09:20:42 by tmaillar          #+#    #+#             */
-/*   Updated: 2024/05/22 12:06:26 by tmaillar         ###   ########.fr       */
+/*   Updated: 2024/05/22 13:48:37 by tmaillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,19 +43,30 @@ void    PhoneBook::check_number(int &index)
 
 void    PhoneBook::add_to_contact(int &index)
 {
+    std::string first;
+    std::string last;
+    std::string nick;
     std::string phone;
     std::string secret;
     std::string str;
     std::cout << "Enter the information of your new contact" << std::endl;
     if (total_contact >= 8)
         index = total_contact - 8;
-    repertory[index].index = index;
+    repertory[index].set_index(index);
     std::cout << "Type the first name : ";
-    repertory[index].first_name = protec_getline(repertory[index].first_name);
+    first = protec_getline(first);
+    repertory[index].set_fname(first);
     std::cout << "Type the last name : ";
-    repertory[index].last_name = protec_getline(repertory[index].last_name);
+    last = protec_getline(last);
+    repertory[index].set_lname(last);
     std::cout << "Type the nickname : ";
-    repertory[index].nickname = protec_getline(repertory[index].nickname);
+    nick = protec_getline(nick);
+    repertory[index].set_nname(nick);
+    // repertory[index].first_name = protec_getline(repertory[index].first_name);
+    // std::cout << "Type the last name : ";
+    // repertory[index].last_name = protec_getline(repertory[index].last_name);
+    // std::cout << "Type the nickname : ";
+    // repertory[index].nickname = protec_getline(repertory[index].nickname);
     std::cout << "Type the phone number : ";
     check_number(index);
     std::cout << "Type his darkest secret : ";
@@ -98,17 +109,26 @@ void    PhoneBook::print_list(int &index)
         index = 8;
     for(int i = 0; i < index; i++)
     {
-        std::cout << "        " << repertory[i].index << "|" << resize_string(repertory[i].first_name)
-        << "|" << resize_string(repertory[i].last_name) << "|" << resize_string(repertory[i].nickname) << "|" << std::endl;
+        // std::cout << "        " << repertory[i].index << "|" << resize_string(repertory[i].first_name)
+        // << "|" << resize_string(repertory[i].last_name) << "|" << resize_string(repertory[i].nickname) << "|" << std::endl;
+         std::cout << "        " << repertory[i].get_index() << "|" << resize_string(repertory[i].get_fname())
+        << "|" << resize_string(repertory[i].get_lname()) << "|" << resize_string(repertory[i].get_nname()) << "|" << std::endl;
     }
 }
 
 void    PhoneBook::print_contact(int &select, int &index)
 {
-    std::cout << "Index #" << repertory[select].index << std::endl;
-    std::cout << "First name : " << repertory[select].first_name << std::endl;
-    std::cout << "Last name : " << repertory[select].last_name << std::endl;
-    std::cout << "Nickname : " << repertory[select].nickname << std::endl;
+    // std::cout << "Index #" << repertory[select].index << std::endl;
+    // std::cout << "First name : " << repertory[select].first_name << std::endl;
+    // std::cout << "Last name : " << repertory[select].last_name << std::endl;
+    // std::cout << "Nickname : " << repertory[select].nickname << std::endl;
+    // std::cout << "Phone number : " << repertory[select].get_phone() << std::endl;
+    // std::cout << "Darkest secret : " << repertory[select].get_darkest()<< std::endl;
+    // std::cout << std::endl;
+    std::cout << "Index #" << repertory[select].get_index() << std::endl;
+    std::cout << "First name : " << repertory[select].get_fname() << std::endl;
+    std::cout << "Last name : " << repertory[select].get_lname() << std::endl;
+    std::cout << "Nickname : " << repertory[select].get_nname() << std::endl;
     std::cout << "Phone number : " << repertory[select].get_phone() << std::endl;
     std::cout << "Darkest secret : " << repertory[select].get_darkest()<< std::endl;
     std::cout << std::endl;

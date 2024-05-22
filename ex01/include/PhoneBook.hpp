@@ -6,7 +6,7 @@
 /*   By: tmaillar <tmaillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 09:17:26 by tmaillar          #+#    #+#             */
-/*   Updated: 2024/05/20 10:42:49 by tmaillar         ###   ########.fr       */
+/*   Updated: 2024/05/22 13:44:12 by tmaillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ class PhoneBook
         Contact repertory[8];
         int             total_contact;
         void            type_command(int &index);
-        void            add_to_contact(int &i);
-        void            check_number(int &i);
+        void            add_to_contact(int &index);
+        void            check_number(int &index);
         void            print_list(int &index);
         void            search_contact(int &index);
         void            index_selection(int &index);
